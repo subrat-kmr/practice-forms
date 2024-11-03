@@ -1,0 +1,28 @@
+
+<div class="user-info-container">
+    <h2>User Information</h2>
+    <div class="info-section">
+      <label>Name:</label>
+      <span>{{ userInfo.name }}</span>
+    </div>
+    <div class="info-section">
+      <label>Date of Birth:</label>
+      <span>{{ userInfo.dob | date }}</span>
+    </div>
+    <div class="info-section">
+      <label>Gender:</label>
+      <span>{{ userInfo.gender }}</span>
+    </div>
+    <div class="info-section">
+      <label>City:</label>
+      <span>{{ userInfo.city }}</span>
+    </div>
+    <div class="info-section">
+      <label>PAN Card:</label>
+      <span>{{ userInfo.panCard }}</span>
+    </div>
+    <div class="info-section">
+      <label>Photo:</label>
+      <img [src]="userInfo.photo" alt="User Photo">
+    </div>
+  </div>

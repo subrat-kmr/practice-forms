@@ -1,0 +1,85 @@
+<div class="signup-form">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input id="name" formControlName="name" type="text" class="form-control">
+            <div
+                *ngIf="signupForm.get('name')?.invalid && (signupForm.get('name')?.dirty || signupForm.get('name')?.touched)">
+                <div *ngIf="signupForm.get('name')?.errors?.['required']">
+                    Name is required
+                </div>
+                <div *ngIf="signupForm.get('name')?.errors?.['minlength']">
+                    Name should be at least 3 characters
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input id="dob" formControlName="dob" type="date" class="form-control">
+            <div
+                *ngIf="signupForm.get('dob')?.invalid && (signupForm.get('dob')?.dirty || signupForm.get('dob')?.touched)">
+                <div *ngIf="signupForm.get('dob')?.errors?.['required']">
+                    Date of Birth is required
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" formControlName="gender" class="form-control">
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <div
+                *ngIf="signupForm.get('gender')?.invalid && (signupForm.get('gender')?.dirty || signupForm.get('gender')?.touched)">
+                <div *ngIf="signupForm.get('gender')?.errors?.['required']">
+                    Gender is required
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input id="city" formControlName="city" type="text" class="form-control">
+            <div
+                *ngIf="signupForm.get('city')?.invalid && (signupForm.get('city')?.dirty || signupForm.get('city')?.touched)">
+                <div *ngIf="signupForm.get('city')?.errors?.['required']">
+                    City is required
+                </div>
+                <div *ngIf="signupForm.get('city')?.errors?.['minlength']">
+                    City should be at least 3 characters
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="panCard">PAN Card:</label>
+            <input id="panCard" formControlName="panCard" type="text" class="form-control">
+            <div
+                *ngIf="signupForm.get('panCard')?.invalid && (signupForm.get('panCard')?.dirty || signupForm.get('panCard')?.touched)">
+                <div *ngIf="signupForm.get('panCard')?.errors?.['required']">
+                    PAN Card is required
+                </div>
+                <div *ngIf="signupForm.get('panCard')?.errors?.['pattern']">
+                    Invalid PAN Card format (XXXXX9999X)
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Photo:</label>
+            <input formControlName="photo" type="file" class="form-control" (change)="onPhotoSelected($event)">
+            <div
+                *ngIf="signupForm.get('photo')?.invalid && (signupForm.get('photo')?.dirty || signupForm.get('photo')?.touched)">
+                <div *ngIf="signupForm.get('photo')?.errors?.['required']">
+                    Photo is required
+                </div>
+            </div>
+            <img [src]="photoPreview" alt="Uploaded Photo" width="100" height="100" *ngIf="photoPreview">
+        </div>
+
+        <button type="submit" [disabled]="!signupForm.valid">Submit</button>
+    </form>
+</div>

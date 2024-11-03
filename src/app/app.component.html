@@ -1,0 +1,29 @@
+
+
+<main class="main">
+  <div *ngIf="loading | async" class="loader-overlay">
+    <div class="loader">Loading...</div>
+  </div>
+  <div class="content">
+    <!-- <nav>
+      <span>Practice Forms: {{ name$ | async }}</span>
+      <span>UserName ----- {{userDetails.username}}</span>
+      <span>UserName ----- {{userDetails.password}}</span>
+    </nav> -->
+    
+    <div class="left-side">
+      <img [src]="loadImage('https://reqres.in/img/faces/7-image.jpg')" alt="Image">
+      <div [innerHTML]="html"></div>
+      <h1>Hello, {{ title}}----{{name$|async}} --- {{users$ |async | json}}</h1>
+      <p>Please Login or signup to the app. 🎉</p>
+      {{pipeNumber| number: '3.1-5' }}
+    </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="">
+      <router-outlet></router-outlet>
+      <app-user-info></app-user-info>
+    </div>
+  </div>
+</main>
+
+<!-- <router-outlet /> -->
