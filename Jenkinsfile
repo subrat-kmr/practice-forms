@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                // Clone the repository
+                // Clone the repository, using the correct branch name
                 git url: 'https://github.com/subrat-kmr/practice-forms.git', branch: 'master'
             }
         }
@@ -42,7 +42,7 @@ pipeline {
         }
         stage('Deploy') {
             when {
-                branch 'main'  // Deploy only when on the main branch
+                branch 'master'  // Adjust if needed, deploy only when on the correct branch
             }
             steps {
                 echo 'Deploying to production...'
