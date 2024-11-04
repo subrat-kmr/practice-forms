@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'NodeJS 16.x'  // Ensure Node.js is available
+        nodejs 'NodeJS 23.1.0'  // Ensure Node.js is available
     }
 
     environment {
