@@ -57,14 +57,14 @@ pipeline {
             cleanWs()  // Clean workspace after build
         }
         failure {
-            mail to: 'team@example.com',
+            mail to: 'subratkmr0@gmail.com',
                  subject: 'Build Failed: ${currentBuild.fullDisplayName}',
                  body: """Build failed in Jenkins: ${env.BUILD_URL}
 
                  Check console output at ${env.BUILD_URL} to view the logs."""
         }
         success {
-            mail to: 'team@example.com',
+            mail to: 'subratkmr0@gmail.com',
                  subject: 'Build Successful: ${currentBuild.fullDisplayName}',
                  body: """Build successful in Jenkins: ${env.BUILD_URL}
 
