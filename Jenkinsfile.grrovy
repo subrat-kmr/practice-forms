@@ -13,7 +13,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 // Clone the repository
-                git url: 'https://github.com/subrat-kmr/practice-forms.git', branch: 'main'
+                git url: 'https://github.com/subrat-kmr/practice-forms.git', branch: 'master'
             }
         }
         stage('Install Dependencies') {
